@@ -1,0 +1,28 @@
+import {Sdx} from 'Sdx'
+import {Pool} from 'entitas'
+import {Group} from 'entitas'
+import {Entity} from 'entitas'
+import {Matcher} from 'entitas'
+import {Exception} from 'entitas'
+import {TriggerOnEvent} from 'entitas'
+import {ISystem} from 'entitas'
+import {ISetPool} from 'entitas'
+import {IComponent} from 'entitas'
+import {IExecuteSystem} from 'entitas'
+import {IInitializeSystem} from 'entitas'
+
+
+export class {{ name }} implements {% for iface in interfaces %} {{ iface }}, {% endfor %}ISystem {
+  protected pool:Pool
+  protected group:Group
+
+{% for iface in interfaces %}
+{% case iface %}
+{% when "IExecuteSystem" %}    public execute(){}
+{% when "IInitializeSystem" %}    public initialize{}
+{% when "ISetPool" %}    public setPool(pool:Pool) {
+        this.pool = pool
+    }
+{% endcase %}
+{% endfor %}
+}

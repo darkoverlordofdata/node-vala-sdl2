@@ -1,0 +1,38 @@
+{
+  "name": "sdx",
+  "version": "0.0.1",
+  "description": "SDL2 Based Framework for Gjs",
+  "main": "bin/game",
+  "directories": {
+    "doc": "doc"
+  },
+  "scripts": {
+    "entitas": "entitas",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/darkoverlordofdata/gjs-vala-sdl2.git"
+  },
+  "keywords": [
+    "gjs",
+    "vala",
+    "genie",
+    "sdl2"
+  ],
+  "author": "darkoverlordofdata",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/darkoverlordofdata/gjs-vala-sdl2/issues"
+  },
+  "homepage": "https://github.com/darkoverlordofdata/gjs-vala-sdl2#readme",
+  "dependencies": {
+    "coffeescript": "^2.0.0-alpha1",
+    "gir2dts": "^0.1.3",
+    "xml2js": "^0.4.17"
+  },
+  "devDependencies": {
+    "entitas-cli": "^0.2.0",
+    "ffi": "^2.2.0"
+  }
+}

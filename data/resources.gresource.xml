@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gresources>
+  <gresource prefix="/darkoverlordofdata/libsdx">
+    <file>fonts/arial-15.fnt</file>
+    <file>fonts/arial-15.bmp</file>
+  </gresource>
+</gresources>

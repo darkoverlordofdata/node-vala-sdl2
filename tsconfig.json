@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "target": "ES5",
+    "module": "amd",
+    "rootDir": "src/js",
+    "allowJs": true,
+    "outFile": "bin/game"
+  },
+  "files": [
+    "src/js/sdx.d.ts",
+    "src/js/prolog.js",
+    "src/js/define.js",
+    "src/js/shmupwarz.d.ts",
+    "src/js/shmupwarz.ts"
+  ]
+}

@@ -1,0 +1,145 @@
+### AutoVala Project ###
+autovala_version: 24
+project_name: libsdx
+vala_version: 0.30
+
+*gresource: resources_gresource_xml data/resources.gresource.xml
+
+vapidir: src/vapis
+
+vala_library: src/libsdx
+version: 0.0.1
+namespace: sdx
+compile_options: --disable-warnings --gir 
+compile_c_options: -g -O3
+vala_check_package: SDL2_image
+vala_check_package: SDL2_mixer
+vala_check_package: SDL2_ttf
+vala_check_package: gee-0.8
+vala_check_package: json-glib-1.0
+vala_check_package: sdl2
+*vala_check_package: gio-2.0
+*vala_check_package: glib-2.0
+*vala_check_package: gobject-2.0
+c_library: m
+*vala_source: Application.gs
+*vala_source: ApplicationListener.gs
+*vala_source: Audio.gs
+*vala_source: Exceptions.gs
+*vala_source: Files.gs
+*vala_source: Game.gs
+*vala_source: Graphics.gs
+*vala_source: Input.gs
+*vala_source: InputAdapter.gs
+*vala_source: InputProcessor.gs
+*vala_source: Net.gs
+*vala_source: Screen.gs
+*vala_source: Sdx.gs
+*vala_source: Version.gs
+*vala_source: audio/Sound.gs
+*vala_source: files/FileHandle.gs
+*vala_source: graphics/Color.gs
+*vala_source: graphics/Texture.gs
+*vala_source: graphics/s2d/Batch.gs
+*vala_source: graphics/s2d/BitmapFont.gs
+*vala_source: graphics/s2d/Font.gs
+*vala_source: graphics/s2d/GlyphLayout.gs
+*vala_source: graphics/s2d/NinePatch.gs
+*vala_source: graphics/s2d/Sprite.gs
+*vala_source: graphics/s2d/TextureAtlas.gs
+*vala_source: graphics/s2d/TextureEnums.vala
+*vala_source: graphics/s2d/TextureRegion.gs
+*vala_source: libsdx.vala
+*vala_source: math/Rectangle.gs
+*vala_source: math/Vector2.gs
+*vala_source: scenes/scene2d/Action.gs
+*vala_source: scenes/scene2d/Actor.gs
+*vala_source: scenes/scene2d/Event.gs
+*vala_source: scenes/scene2d/Group.gs
+*vala_source: scenes/scene2d/InputEvent.gs
+*vala_source: scenes/scene2d/InputListener.gs
+*vala_source: scenes/scene2d/Stage.gs
+*vala_source: scenes/scene2d/ui/Image.gs
+*vala_source: scenes/scene2d/ui/Label.gs
+*vala_source: scenes/scene2d/ui/Scaling.vala
+*vala_source: scenes/scene2d/ui/Widget.gs
+*vala_source: scenes/scene2d/utils/BaseDrawable.gs
+*vala_source: scenes/scene2d/utils/ClickListener.gs
+*vala_source: scenes/scene2d/utils/Drawable.gs
+*vala_source: scenes/scene2d/utils/FocusEvent.gs
+*vala_source: scenes/scene2d/utils/FocusListener.gs
+*vala_source: scenes/scene2d/utils/Layout.gs
+*vala_source: scenes/scene2d/utils/NinePatchDrawable.gs
+*vala_source: scenes/scene2d/utils/TextureRegionDrawable.gs
+*vala_source: scenes/scene2d/utils/TransformDrawable.gs
+*vala_source: utils/Align.gs
+*vala_source: utils/Json.gs
+*vala_source: utils/Pool.gs
+*vala_source: utils/Pools.gs
+*vala_source: utils/StringTokenizer.gs
+*vala_source: utils/viewport/Viewport.gs
+
+
+*po: po
+
+*translate: genie src/Application.gs
+*translate: genie src/ApplicationListener.gs
+*translate: genie src/Audio.gs
+*translate: genie src/Exceptions.gs
+*translate: genie src/Files.gs
+*translate: genie src/Game.gs
+*translate: genie src/Graphics.gs
+*translate: genie src/Input.gs
+*translate: genie src/InputAdapter.gs
+*translate: genie src/InputProcessor.gs
+*translate: genie src/Net.gs
+*translate: genie src/Screen.gs
+*translate: genie src/Sdx.gs
+*translate: genie src/Version.gs
+*translate: genie src/audio/Sound.gs
+*translate: genie src/files/FileHandle.gs
+*translate: genie src/graphics/Color.gs
+*translate: genie src/graphics/Texture.gs
+*translate: genie src/graphics/s2d/Batch.gs
+*translate: genie src/graphics/s2d/BitmapFont.gs
+*translate: genie src/graphics/s2d/Font.gs
+*translate: genie src/graphics/s2d/GlyphLayout.gs
+*translate: genie src/graphics/s2d/NinePatch.gs
+*translate: genie src/graphics/s2d/Sprite.gs
+*translate: genie src/graphics/s2d/TextureAtlas.gs
+*translate: vala src/graphics/s2d/TextureEnums.vala
+*translate: genie src/graphics/s2d/TextureRegion.gs
+*translate: vala src/libsdx.vala
+*translate: genie src/math/Rectangle.gs
+*translate: genie src/math/Vector2.gs
+*translate: genie src/scenes/scene2d/Action.gs
+*translate: genie src/scenes/scene2d/Actor.gs
+*translate: genie src/scenes/scene2d/Event.gs
+*translate: genie src/scenes/scene2d/Group.gs
+*translate: genie src/scenes/scene2d/InputEvent.gs
+*translate: genie src/scenes/scene2d/InputListener.gs
+*translate: genie src/scenes/scene2d/Stage.gs
+*translate: genie src/scenes/scene2d/ui/Image.gs
+*translate: genie src/scenes/scene2d/ui/Label.gs
+*translate: vala src/scenes/scene2d/ui/Scaling.vala
+*translate: genie src/scenes/scene2d/ui/Widget.gs
+*translate: genie src/scenes/scene2d/utils/BaseDrawable.gs
+*translate: genie src/scenes/scene2d/utils/ClickListener.gs
+*translate: genie src/scenes/scene2d/utils/Drawable.gs
+*translate: genie src/scenes/scene2d/utils/FocusEvent.gs
+*translate: genie src/scenes/scene2d/utils/FocusListener.gs
+*translate: genie src/scenes/scene2d/utils/Layout.gs
+*translate: genie src/scenes/scene2d/utils/NinePatchDrawable.gs
+*translate: genie src/scenes/scene2d/utils/TextureRegionDrawable.gs
+*translate: genie src/scenes/scene2d/utils/TransformDrawable.gs
+*translate: genie src/utils/Align.gs
+*translate: genie src/utils/Json.gs
+*translate: genie src/utils/Pool.gs
+*translate: genie src/utils/Pools.gs
+*translate: genie src/utils/StringTokenizer.gs
+*translate: genie src/utils/viewport/Viewport.gs
+
+*data: data/local
+
+*doc: doc
+

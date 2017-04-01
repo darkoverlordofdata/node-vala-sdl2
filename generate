@@ -1,0 +1,36 @@
+#!/usr/bin/env sh
+mkdir ./tmp
+
+npm run entitas -- generate
+npm run entitas -- generate -p ts -t src
+
+## edit the module headers
+sed -i -e "s/declare module entitas.utils/declare module \'entitas.utils\'/" tmp/shmupwarz.d.ts
+sed -i -e "s/declare module entitas.exceptions/declare module \'entitas.exceptions\'/" tmp/shmupwarz.d.ts
+sed -i -e "s/declare module entitas.viewer/declare module \'entitas.viewer\'/" tmp/shmupwarz.d.ts
+sed -i -e "s/declare module entitas/declare module \'entitas\'/" tmp/shmupwarz.d.ts
+
+## edit imports
+sed -i -e "s/import Bag = entitas.utils.Bag;/import {Bag} from \'entitas.utils\';/" tmp/shmupwarz.d.ts
+sed -i -e "s/import Pool = entitas.Pool;/import {Pool} from \'entitas\';/" tmp/shmupwarz.d.ts
+sed -i -e "s/import Exception = entitas.Exception;/import {Exception} from \'entitas\';/" tmp/shmupwarz.d.ts
+sed -i -e "s/import GroupEventType = entitas.GroupEventType;/import {GroupEventType} from \'entitas\';/" tmp/shmupwarz.d.ts
+sed -i -e "s/import Entity = entitas.Entity;/import {Entity} from \'entitas\';/" tmp/shmupwarz.d.ts
+sed -i -e "s/import IAllOfMatcher = entitas.IAllOfMatcher;/import {IAllOfMatcher} from \'entitas\';/" tmp/shmupwarz.d.ts
+sed -i -e "s/import IAnyOfMatcher = entitas.IAnyOfMatcher;/import {IAnyOfMatcher} from \'entitas\';/" tmp/shmupwarz.d.ts
+sed -i -e "s/import INoneOfMatcher = entitas.INoneOfMatcher;/import {INoneOfMatcher} from \'entitas\';/" tmp/shmupwarz.d.ts
+sed -i -e "s/import TriggerOnEvent = entitas.TriggerOnEvent;/import {TriggerOnEvent} from \'entitas\';/" tmp/shmupwarz.d.ts
+sed -i -e "s/import ISignal = entitas.utils.ISignal;/import {ISignal} from \'entitas.utils\';/" tmp/shmupwarz.d.ts
+sed -i -e "s/import IComponent = entitas.IComponent;/import {IComponent} from \'entitas\';/" tmp/shmupwarz.d.ts
+sed -i -e "s/import IMatcher = entitas.IMatcher;/import {IMatcher} from \'entitas\';/" tmp/shmupwarz.d.ts
+sed -i -e "s/import Group = entitas.Group;/import {Group} from \'entitas\';/" tmp/shmupwarz.d.ts
+sed -i -e "s/import GroupObserver = entitas.GroupObserver;/import {GroupObserver} from \'entitas\';/" tmp/shmupwarz.d.ts
+sed -i -e "s/import IReactiveSystem = entitas.IReactiveSystem;/import {IReactiveSystem} from \'entitas\';/" tmp/shmupwarz.d.ts
+sed -i -e "s/import IMultiReactiveSystem = entitas.IMultiReactiveSystem;/import {IMultiReactiveSystem} from \'entitas\';/" tmp/shmupwarz.d.ts
+sed -i -e "s/import ISystem = entitas.ISystem;/import {ISystem} from \'entitas\';/" tmp/shmupwarz.d.ts
+sed -i -e "s/import IExecuteSystem = entitas.IExecuteSystem;/import {IExecuteSystem} from \'entitas\';/" tmp/shmupwarz.d.ts
+sed -i -e "s/import IInitializeSystem = entitas.IInitializeSystem;/import {IInitializeSystem} from \'entitas\';/" tmp/shmupwarz.d.ts
+
+cp -f tmp/shmupwarz.d.ts src/js/shmupwarz.d.ts
+cp -f tmp/Components.ts src/js/components.ts
+rm -r tmp
