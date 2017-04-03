@@ -13,21 +13,25 @@ import {AddViewSystem} from 'systems/AddViewSystem'
 // import {HealthRenderSystem} from 'systems/HealthRenderSystem'
 // import {HudRenderSystem} from 'systems/HudRenderSystem'
 import {DestroySystem} from 'systems/DestroySystem'
-//0.001451
-//0.002207
-import * as sdx from 'Sdx'
+
+import * as Gtk from 'Gtk'
+// Gtk.init null
+// win = new ListBoxWindow()
+// win.gob.connect "delete-event", Gtk.main_quit
+// win.gob.show_all()
+// Gtk.main()
 
 module example {
 
   function main() {
 
-      const game = sdx.createGame("ShmupWarz", 640, 720, DATADIR) 
+      const game = createGame("ShmupWarz", 640, 720, DATADIR) 
       const shmupwarz = new Shmupwarz()
 
       shmupwarz.start()
       game.profile = true
       game.start()
-      while(game.running) {
+      while (game.running) {
           game.handleEvents()
           if (game.getKey(Input.Keys.Esc)) break
           else {
@@ -37,7 +41,7 @@ module example {
       }
   }
 
-  export class Shmupwarz {
+  class Shmupwarz {
 
     systems:Systems
 
@@ -66,7 +70,6 @@ module example {
       this.systems.execute()
     }
   }
-
 
   main()
 }

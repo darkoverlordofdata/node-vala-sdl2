@@ -17,31 +17,34 @@ const T3:number = 12//7 //12
 export class EntitySpawningTimerSystem implements IExecuteSystem, IInitializeSystem, ISetPool {
 
   protected pool:Pool
-  protected enemyT1 = 0//T1
-  protected enemyT2 = T2/2
-  protected enemyT3 = T3/2
+  protected enemyT1 = 0
+  protected enemyT2 = 0
+  protected enemyT3 = 0
+
+  public initialize() {
+    // this.enemyT1 = 2.0
+    // this.enemyT2 = 6.0
+    // this.enemyT3 = 12.0
+  }
 
   public execute() {
 
-    let deltaTime = Sdx.app.deltaTime
-
-    function spawn(pool, t, enemy) {
-        const d1 = t-deltaTime
-        if (d1<0) {
-            switch(enemy) {
-                case 1: pool.createEnemy1(); return T1
-                case 2: pool.createEnemy2(); return T2
-                case 3: pool.createEnemy3(); return T3
-            }
-        } else return d1
-    }
-    this.enemyT1 = spawn(this.pool, this.enemyT1, 1)
-    this.enemyT2 = spawn(this.pool, this.enemyT2, 2)
-    this.enemyT3 = spawn(this.pool, this.enemyT3, 3)
+    this.enemyT1 = this.spawn(this.pool, this.enemyT1, 1)
+    this.enemyT2 = this.spawn(this.pool, this.enemyT2, 2)
+    this.enemyT3 = this.spawn(this.pool, this.enemyT3, 3)
 
   }
 
-  public initialize() {
+  spawn(pool, t, enemy) {
+      let deltaTime = Sdx.app.deltaTime
+      const d1 = t-deltaTime
+      if (d1<0) {
+          switch(enemy) {
+              case 1: pool.createEnemy1(); return 1
+              case 2: pool.createEnemy2(); return 5
+              case 3: pool.createEnemy3(); return 7
+          }
+      } else return d1
   }
 
   public setPool(pool:Pool) {

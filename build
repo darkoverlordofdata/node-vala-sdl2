@@ -12,12 +12,13 @@ valac   --pkg gee-0.8 \
         --disable-warnings \
         --vapidir src/vapis \
         --library=sdx \
+        --vapi=../../.local/lib/sdx.vapi \
+        --gir ../../.local/lib/sdx-0.1.gir \
+        --save-temps \
         -X -fPIC \
         -X -shared \
         -X -O3 \
         -X -g \
-        --vapi=../../.local/lib//sdx.vapi \
-        --gir ../../.local/lib//sdx-0.1.gir \
         -o ../../.local/lib/sdx.so \
         src/JsGame.gs  \
         src/JsFactory.gs  \
@@ -78,9 +79,9 @@ valac   --pkg gee-0.8 \
         src/utils/StringTokenizer.gs \
         src/utils/viewport/Viewport.gs 
 
-g-ir-compiler ../../.local/lib//sdx-0.1.gir \
-        --shared-library=../../.local/lib//sdx.so \
-        --output=../../.local/lib//sdx-0.1.typelib 
+g-ir-compiler /home/bruce/.local/lib/sdx-0.1.gir \
+        --shared-library=/home/bruce/.local/lib/sdx.so \
+        --output=/home/bruce/.local/lib/sdx-0.1.typelib 
         
 
 # npm run gir2dts

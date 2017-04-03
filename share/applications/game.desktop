@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Encoding=UTF-8
+Name=Game
+Comment=Test Game
+Exec=/home/bruce/.local/bin/game
+Icon=/home/bruce/.local/share/game/images/spaceshipspr.png
+Terminal=false
+Type=Application
+StartupNotify=true
+Categories=GNOME;GTK;Utility;

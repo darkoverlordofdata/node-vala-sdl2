@@ -1,36 +1,64 @@
 #!/usr/bin/env node
-var DATADIR = '/home/bruce/gjs/node-vala-sdl2/data';
-var MODULES = DATADIR + '/lib/';
+const DATADIR = "/home/bruce/gjs/node-vala-sdl2/share/game/"
 /**
  *  Copyright 2017 darkoverlordofdata
  *
- * Simple module loader
- * merge amd and commonjs imports
+ * gnode is a cross-browserish
+ * simple module loader for the desktop
  *
  */
-Object.defineProperties(global, {
-    define: { value: (function (modules) {
-            return function (name, deps, callback) {
-                if (typeof name !== 'string') {
-                    var bundle = deps();
-                    for (name in bundle)
-                        modules[name] = { id: name, exports: bundle[name] };
-                }
-                else {
-                    modules[name] = { id: name, exports: {} };
-                    var args = [function (name) { return modules[name] ? modules[name].exports : require(name); },
-                        modules[name].exports];
-                    for (var i = 2; i < deps.length; i++)
-                        args.push(modules[deps[i]].exports);
-                    callback.apply(modules[name].exports, args);
-                }
-            };
-        }(require(MODULES))) } // load the builtin modules for this application
-});
-Object.defineProperties(define, {
-    amd: { value: true },
-    version: { value: '0.1.0' },
-});
+;
+(function (scope) {
+    /**
+     * define amd loader
+     */
+    Object.defineProperties(scope, {
+        define: { value: (function (modules) {
+                return function (name, deps, callback) {
+                    if (typeof name !== 'string') {
+                        var bundle = deps();
+                        for (name in bundle)
+                            modules[name] = { id: name, exports: bundle[name] };
+                    }
+                    else {
+                        modules[name] = { id: name, exports: {} };
+                        var args = [function (name) { return modules[name] ? modules[name].exports : imports[name]; },
+                            modules[name].exports];
+                        for (var i = 2; i < deps.length; i++)
+                            args.push(modules[deps[i]].exports);
+                        callback.apply(modules[name].exports, args);
+                    }
+                };
+            }(typeof imports === 'undefined'
+                ? require(DATADIR)
+                : (function () {
+                    imports.searchPath.unshift(DATADIR);
+                    return imports.modules.exports;
+                }()))) }
+    });
+    Object.defineProperties(define, {
+        amd: { value: true },
+        version: { value: '0.2.0' },
+    });
+    if (typeof console === 'undefined') {
+        Object.defineProperties(scope, {
+            console: { value: {
+                    log: function () { print.apply(null, arguments); },
+                    warn: function () { print.apply(null, arguments); },
+                    error: function () { print.apply(null, arguments); },
+                    info: function () { print.apply(null, arguments); }
+                } },
+        });
+    }
+    else {
+        Object.defineProperties(scope, {
+            print: { value: function () { console.log(arguments[0]); } },
+            log: { value: function () { console.info(arguments[0]); } },
+            logError: { value: function () { console.warn(arguments[0]); } },
+            printerr: { value: function () { console.error(arguments[0]); } },
+        });
+    }
+})(typeof window === 'undefined' ? global : window);
 define("components", ["require", "exports", "entitas", "entitas", "entitas", "entitas.exceptions", "entitas.utils"], function (require, exports, entitas_1, entitas_2, entitas_3, entitas_exceptions_1, entitas_utils_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
@@ -2015,35 +2043,38 @@ define("systems/EntitySpawningTimerSystem", ["require", "exports", "Sdx"], funct
     var T3 = 12; //7 //12
     var EntitySpawningTimerSystem = (function () {
         function EntitySpawningTimerSystem() {
-            this.enemyT1 = 0; //T1
-            this.enemyT2 = T2 / 2;
-            this.enemyT3 = T3 / 2;
+            this.enemyT1 = 0;
+            this.enemyT2 = 0;
+            this.enemyT3 = 0;
         }
-        EntitySpawningTimerSystem.prototype.execute = function () {
-            var deltaTime = Sdx_6.Sdx.app.deltaTime;
-            function spawn(pool, t, enemy) {
-                var d1 = t - deltaTime;
-                if (d1 < 0) {
-                    switch (enemy) {
-                        case 1:
-                            pool.createEnemy1();
-                            return T1;
-                        case 2:
-                            pool.createEnemy2();
-                            return T2;
-                        case 3:
-                            pool.createEnemy3();
-                            return T3;
-                    }
-                }
-                else
-                    return d1;
-            }
-            this.enemyT1 = spawn(this.pool, this.enemyT1, 1);
-            this.enemyT2 = spawn(this.pool, this.enemyT2, 2);
-            this.enemyT3 = spawn(this.pool, this.enemyT3, 3);
-        };
         EntitySpawningTimerSystem.prototype.initialize = function () {
+            // this.enemyT1 = 2.0
+            // this.enemyT2 = 6.0
+            // this.enemyT3 = 12.0
+        };
+        EntitySpawningTimerSystem.prototype.execute = function () {
+            this.enemyT1 = this.spawn(this.pool, this.enemyT1, 1);
+            this.enemyT2 = this.spawn(this.pool, this.enemyT2, 2);
+            this.enemyT3 = this.spawn(this.pool, this.enemyT3, 3);
+        };
+        EntitySpawningTimerSystem.prototype.spawn = function (pool, t, enemy) {
+            var deltaTime = Sdx_6.Sdx.app.deltaTime;
+            var d1 = t - deltaTime;
+            if (d1 < 0) {
+                switch (enemy) {
+                    case 1:
+                        pool.createEnemy1();
+                        return 1;
+                    case 2:
+                        pool.createEnemy2();
+                        return 5;
+                    case 3:
+                        pool.createEnemy3();
+                        return 7;
+                }
+            }
+            else
+                return d1;
         };
         EntitySpawningTimerSystem.prototype.setPool = function (pool) {
             this.pool = pool;
@@ -2189,13 +2220,18 @@ define("systems/DestroySystem", ["require", "exports", "Sdx", "entitas"], functi
     }());
     exports.DestroySystem = DestroySystem;
 });
-define("shmupwarz", ["require", "exports", "Sdx", "entitas", "components", "systems/MovementSystem", "systems/PlayerInputSystem", "systems/SoundEffectSystem", "systems/CollisionSystem", "systems/ExpiringSystem", "systems/EntitySpawningTimerSystem", "systems/ScaleAnimationSystem", "systems/RemoveOffscreenShipsSystem", "systems/AddViewSystem", "systems/DestroySystem", "Sdx"], function (require, exports, Sdx_11, entitas_14, components_1, MovementSystem_1, PlayerInputSystem_1, SoundEffectSystem_1, CollisionSystem_1, ExpiringSystem_1, EntitySpawningTimerSystem_1, ScaleAnimationSystem_1, RemoveOffscreenShipsSystem_1, AddViewSystem_1, DestroySystem_1, sdx) {
+define("shmupwarz", ["require", "exports", "Sdx", "entitas", "components", "systems/MovementSystem", "systems/PlayerInputSystem", "systems/SoundEffectSystem", "systems/CollisionSystem", "systems/ExpiringSystem", "systems/EntitySpawningTimerSystem", "systems/ScaleAnimationSystem", "systems/RemoveOffscreenShipsSystem", "systems/AddViewSystem", "systems/DestroySystem"], function (require, exports, Sdx_11, entitas_14, components_1, MovementSystem_1, PlayerInputSystem_1, SoundEffectSystem_1, CollisionSystem_1, ExpiringSystem_1, EntitySpawningTimerSystem_1, ScaleAnimationSystem_1, RemoveOffscreenShipsSystem_1, AddViewSystem_1, DestroySystem_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
+    // Gtk.init null
+    // win = new ListBoxWindow()
+    // win.gob.connect "delete-event", Gtk.main_quit
+    // win.gob.show_all()
+    // Gtk.main()
     var example;
     (function (example) {
         function main() {
-            var game = sdx.createGame("ShmupWarz", 640, 720, DATADIR);
+            var game = Sdx_11.createGame("ShmupWarz", 640, 720, DATADIR);
             var shmupwarz = new Shmupwarz();
             shmupwarz.start();
             game.profile = true;
@@ -2235,7 +2271,6 @@ define("shmupwarz", ["require", "exports", "Sdx", "entitas", "components", "syst
             };
             return Shmupwarz;
         }());
-        example.Shmupwarz = Shmupwarz;
         main();
     })(example || (example = {}));
 });

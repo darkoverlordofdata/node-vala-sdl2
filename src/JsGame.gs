@@ -163,9 +163,11 @@ namespace sdx
             while Event.poll(out evt) != 0
                 case evt.type // patch for keyboardGetState
                     when SDL.EventType.KEYDOWN
-                        keys[evt.key.keysym.sym] = 1
+                        if evt.key.keysym.sym < 256
+                            keys[evt.key.keysym.sym] = 1
                     when SDL.EventType.KEYUP
-                        keys[evt.key.keysym.sym] = 0
+                        if evt.key.keysym.sym < 256
+                            keys[evt.key.keysym.sym] = 0
                     when  SDL.EventType.MOUSEMOTION
                         _mouseX = (int)evt.motion.x
                         _mouseY = (int)evt.motion.y

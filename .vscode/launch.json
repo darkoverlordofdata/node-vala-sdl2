@@ -6,8 +6,8 @@
             "type": "lldb",
             "request": "launch",
             "cwd": "${workspaceRoot}",
-            "program": "/bin/sh",
-            "args": ["./run"]
+            "program": "/usr/bin/node",
+            "args": ["bin/game"]
         }
     ]
 }

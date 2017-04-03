@@ -11,7 +11,7 @@
         {
             "isBuildCommand": true,
             "taskName": "build",
-            "args": ["./build"]
+            "args": ["/usr/bin/time tsc && cat src/js/prolog.js bin/game | sponge bin/game"]
         }
     ]
 }
