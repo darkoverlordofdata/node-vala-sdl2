@@ -2223,11 +2223,6 @@ define("systems/DestroySystem", ["require", "exports", "Sdx", "entitas"], functi
 define("shmupwarz", ["require", "exports", "Sdx", "entitas", "components", "systems/MovementSystem", "systems/PlayerInputSystem", "systems/SoundEffectSystem", "systems/CollisionSystem", "systems/ExpiringSystem", "systems/EntitySpawningTimerSystem", "systems/ScaleAnimationSystem", "systems/RemoveOffscreenShipsSystem", "systems/AddViewSystem", "systems/DestroySystem"], function (require, exports, Sdx_11, entitas_14, components_1, MovementSystem_1, PlayerInputSystem_1, SoundEffectSystem_1, CollisionSystem_1, ExpiringSystem_1, EntitySpawningTimerSystem_1, ScaleAnimationSystem_1, RemoveOffscreenShipsSystem_1, AddViewSystem_1, DestroySystem_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    // Gtk.init null
-    // win = new ListBoxWindow()
-    // win.gob.connect "delete-event", Gtk.main_quit
-    // win.gob.show_all()
-    // Gtk.main()
     var example;
     (function (example) {
         function main() {

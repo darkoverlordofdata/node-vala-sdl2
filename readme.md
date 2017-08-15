@@ -26,16 +26,16 @@ shmupwarz avg ms per frame over 10k frames
     gjs	        node	    vala
 0.005094	0.004424	0.004566
 
+## the winner
+
+is node.js
+* slightly faster performance
+* windows compatible
+* es6
+
+
 
 
 ## todo
-changes made to sdx vala code -
 
-    some fields were elevated to properties
-    mew class JsGame
-
-
-These changes need to be rolled back into the main sdx project and regressed.
-
-how do I intgrate this with Bosco?
-
+merge this into zerog

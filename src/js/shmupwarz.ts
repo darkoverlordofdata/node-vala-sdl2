@@ -14,13 +14,6 @@ import {AddViewSystem} from 'systems/AddViewSystem'
 // import {HudRenderSystem} from 'systems/HudRenderSystem'
 import {DestroySystem} from 'systems/DestroySystem'
 
-import * as Gtk from 'Gtk'
-// Gtk.init null
-// win = new ListBoxWindow()
-// win.gob.connect "delete-event", Gtk.main_quit
-// win.gob.show_all()
-// Gtk.main()
-
 module example {
 
   function main() {
