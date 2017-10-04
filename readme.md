@@ -33,6 +33,7 @@ is node.js
 * windows compatible
 * es6
 
+Windows 10 test works!!! This is definitely the way to go!!!
 
 
 
@@ -43,4 +44,4 @@ merge this into zerog
 ### notes
 * use zerog Sdx as the core api
 * make a scripting wrapper using genie
-* genie's prop keyword exposes field access, cleaner script api 
+* genie's prop keyword exposes field access, cleaner script api

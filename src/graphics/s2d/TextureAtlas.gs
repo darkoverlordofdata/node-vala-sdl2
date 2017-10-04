@@ -43,6 +43,7 @@ namespace sdx.graphics.s2d
                     while true
                         var line = reader.read_line()
                         if line == null do break
+                        line = line.replace("\r", "")
                         if line.strip().length == 0
                             pageImage = null
                         else if pageImage == null

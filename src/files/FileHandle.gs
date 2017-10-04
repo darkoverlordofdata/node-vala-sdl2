@@ -15,10 +15,11 @@ namespace sdx.files
             if Sdx.files.isResource && type == FileType.Resource && fileName.substring(0,1) != "/"
                 _file = File.new_for_path(Sdx.files.resourcePath + Sdx.files.separator + fileName)
             else
-                if fileName.substring(0, 1) == "/"
-                    _file = File.new_for_path(fileName)
-                else
-                    _file = File.new_for_path(Sdx.files.resourcePath + Sdx.files.separator + fileName)
+                _file = File.new_for_path(fileName)
+                // if fileName.substring(0, 1) == "/"
+                //     _file = File.new_for_path(fileName)
+                // else
+                //     _file = File.new_for_path(Sdx.files.resourcePath + Sdx.files.separator + fileName)
 
         /**
          * getRWops

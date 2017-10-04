@@ -74,8 +74,14 @@ namespace sdx
     def createColor(r:double, g:double, b:double, a:double):Object
         return (Object)(new sdx.graphics.Color.rgba(r, g, b, a))
 
-    def createAtlas(path:string):Object
+    def createAtlas(p:string):Object
+        var path = "C:\\Users\\darko\\Documents\\GitHub\\node-vala-sdl2\\share\\game\\"+p
+        print "path = %s", path
         var file = Sdx.files.resource(path)
+        if file.exists()
+            print "EXISTS"
+        else
+            print "NOT EXISTS"
         if !file.exists() do return null
         return new TextureAtlas.file(file)
        

@@ -1,2 +1,1 @@
-#!/usr/bin/env node
-const DATADIR = "/home/bruce/gjs/node-vala-sdl2/share/game/"
+const DATADIR = "C:\\Users\\darko\\Documents\\GitHub\\node-vala-sdl2\\share\\game";
