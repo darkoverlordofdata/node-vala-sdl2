@@ -24,10 +24,10 @@ export class ScaleAnimationSystem implements IExecuteSystem, ISetPool {
     let entities = this.group.getEntities()
     for (let e of entities) {
 
-      let scaleAnimation:ScaleAnimationComponent = e.scaleAnimation
+      let scaleAnimation = e.scaleAnimation
 
       if (scaleAnimation.active) {
-        let scale:ScaleComponent = e.scale
+        let scale = e.scale
 
         scale.x += scaleAnimation.speed * delta
         scale.y = scale.x
@@ -41,7 +41,7 @@ export class ScaleAnimationSystem implements IExecuteSystem, ISetPool {
           scale.y = scale.x
           scaleAnimation.active = false
         }
-        let sprite:Sprite = <Sprite>(e.sprite.object)
+        let sprite = <Sprite>(e.sprite.object)
         sprite.setScale(scale.x, scale.y)
 
       }

@@ -49,9 +49,12 @@ export class CollisionSystem implements IInitializeSystem, IExecuteSystem, ISetP
     this.collisionPairs.push(new CollisionPair(this, this.bullets, this.enemies, {
 
       handleCollision: (bullet: Entity, ship: Entity) => {
-        let bp: PositionComponent = bullet.position
-        let health: HealthComponent = ship.health
-        let position: PositionComponent = ship.position
+        // let bp: PositionComponent = bullet.position
+        // let health: HealthComponent = ship.health
+        // let position: PositionComponent = ship.position
+        let bp = bullet.position
+        let health = ship.health
+        let position = ship.position
         let x = bp.x
         let y = bp.y
 
@@ -62,7 +65,7 @@ export class CollisionSystem implements IInitializeSystem, IExecuteSystem, ISetP
         bullet.setDestroy(true)
         health.health -= 2
         if (health.health < 0) {
-          let score: ScoreComponent = <ScoreComponent>(this.pool.score)
+          let score = <ScoreComponent>(this.pool.score)
           this.pool.replaceScore(score.value + ship.health.maximumHealth)
           ship.setDestroy(true)
           this.pool.createBigExplosion(position.x, position.y)

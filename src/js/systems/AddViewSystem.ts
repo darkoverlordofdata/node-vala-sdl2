@@ -44,7 +44,7 @@ export class AddViewSystem implements ISetPool {
    */
   protected onEntityAdded = (group:Group, e:Entity, index:number, component:IComponent) => {
 
-    let sprite:Sprite = this.atlas.createSprite(e.resource.name, -1)
+    let sprite = this.atlas.createSprite(e.resource.name, -1)
     let position = e.position
 
     sprite.x = position.x

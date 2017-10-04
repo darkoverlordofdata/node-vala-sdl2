@@ -23,7 +23,7 @@ export class PlayerInputSystem implements IExecuteSystem, IInitializeSystem, ISe
 
     let e = entities[0]
 
-    let position:PositionComponent = e.position
+    let position = e.position
     position.x = Sdx.app.mouseX
     position.y = Sdx.app.mouseY
 

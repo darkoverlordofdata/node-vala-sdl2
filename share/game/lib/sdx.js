@@ -64,6 +64,7 @@ VAudio = ref.types["void"];
 VAudioPtr = ref.refType(VAudio);
 
 sdx = ffi.Library('sdx', {
+  sdx_get_version: ['string', []],
   sdx_createJsGame: [VGamePtr, ['string', 'int', 'int', 'string']],
   sdx_createSprite: [VSpritePtr, ['string']],
   sdx_createAtlas: [VAtlasPtr, ['string']],
@@ -908,6 +909,14 @@ Object.defineProperties(sdx.Sdx, {
   files: {
     get: function() {
       return Game.files;
+    }
+  }
+});
+
+Object.defineProperties(sdx, {
+  version: {
+    get: function() {
+      return sdx.sdx_get_version();
     }
   }
 });

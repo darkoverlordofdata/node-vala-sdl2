@@ -21,6 +21,9 @@ namespace sdx
         prop abstract readonly renderer : unowned Renderer
         
 
+    def get_version(): string
+        return "420.421"
+
     class Sdx : Object
 
         prop static readonly app: IApplication

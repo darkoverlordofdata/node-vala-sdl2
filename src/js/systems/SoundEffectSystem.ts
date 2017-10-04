@@ -29,7 +29,7 @@ export class SoundEffectSystem implements IInitializeSystem, IExecuteSystem, ISe
   public execute() {
     let entities = this.group.getEntities()
     for (let e of entities) {
-      let soundEffect:SoundEffectComponent = e.soundEffect
+      let soundEffect = e.soundEffect
       switch(soundEffect.effect) {
         case Effect.PEW:          this.pew.play(0); break
         case Effect.ASPLODE:      this.asplode.play(0); break

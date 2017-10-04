@@ -1,10 +1,9 @@
 /**
  * Libs
  * 
- * seed the module loader with connonjs libs
+ * Load the nodejs libs
  * 
  */
-//require('coffeescript/register')
 const __libSdx = require('./lib/sdx')
 const __libEntitas = require('./lib/entitas')
 
@@ -15,4 +14,3 @@ module.exports = {
     'entitas.exceptions':   { id: 'entitas.exceptions',     exports: __libEntitas.exceptions },
 }
 
-//Sdx - export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/home/bruce/.local/lib/"

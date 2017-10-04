@@ -4,6 +4,7 @@
  */
 declare module 'Sdx' {
 
+    export function sdx_get_version():string
     export const PI:number
     export const degreesToRadians:number
     export const VERSION:string
