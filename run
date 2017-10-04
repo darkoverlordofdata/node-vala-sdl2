@@ -1,4 +1,0 @@
-#!/usr/bin/env sh
-tsc
-#gjs bin/game
-node bin/game
