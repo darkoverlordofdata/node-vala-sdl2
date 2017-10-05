@@ -1,6 +1,7 @@
 src/Application.gs
 src/ApplicationListener.gs
 src/Audio.gs
+src/Example.vala
 src/Exceptions.gs
 src/Files.gs
 src/Game.gs
@@ -8,6 +9,8 @@ src/Graphics.gs
 src/Input.gs
 src/InputAdapter.gs
 src/InputProcessor.gs
+src/JsFactory.gs
+src/JsGame.gs
 src/Net.gs
 src/Screen.gs
 src/Sdx.gs

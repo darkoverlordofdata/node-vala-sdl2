@@ -3,28 +3,27 @@ autovala_version: 24
 project_name: libsdx
 vala_version: 0.30
 
-*gresource: resources_gresource_xml data/resources.gresource.xml
-
 vapidir: src/vapis
 
 vala_library: src/libsdx
 version: 0.0.1
 namespace: sdx
-compile_options: --disable-warnings --gir 
+compile_options: --disable-warnings
 compile_c_options: -g -O3
 vala_check_package: SDL2_image
 vala_check_package: SDL2_mixer
 vala_check_package: SDL2_ttf
 vala_check_package: gee-0.8
+vala_check_package: gio-2.0
+vala_check_package: glib-2.0
+vala_check_package: gobject-2.0
 vala_check_package: json-glib-1.0
 vala_check_package: sdl2
-*vala_check_package: gio-2.0
-*vala_check_package: glib-2.0
-*vala_check_package: gobject-2.0
 c_library: m
 *vala_source: Application.gs
 *vala_source: ApplicationListener.gs
 *vala_source: Audio.gs
+*vala_source: Example.vala
 *vala_source: Exceptions.gs
 *vala_source: Files.gs
 *vala_source: Game.gs
@@ -32,6 +31,8 @@ c_library: m
 *vala_source: Input.gs
 *vala_source: InputAdapter.gs
 *vala_source: InputProcessor.gs
+*vala_source: JsFactory.gs
+*vala_source: JsGame.gs
 *vala_source: Net.gs
 *vala_source: Screen.gs
 *vala_source: Sdx.gs
@@ -85,6 +86,7 @@ c_library: m
 *translate: genie src/Application.gs
 *translate: genie src/ApplicationListener.gs
 *translate: genie src/Audio.gs
+*translate: vala src/Example.vala
 *translate: genie src/Exceptions.gs
 *translate: genie src/Files.gs
 *translate: genie src/Game.gs
@@ -92,6 +94,8 @@ c_library: m
 *translate: genie src/Input.gs
 *translate: genie src/InputAdapter.gs
 *translate: genie src/InputProcessor.gs
+*translate: genie src/JsFactory.gs
+*translate: genie src/JsGame.gs
 *translate: genie src/Net.gs
 *translate: genie src/Screen.gs
 *translate: genie src/Sdx.gs
@@ -138,8 +142,6 @@ c_library: m
 *translate: genie src/utils/Pools.gs
 *translate: genie src/utils/StringTokenizer.gs
 *translate: genie src/utils/viewport/Viewport.gs
-
-*data: data/local
 
 *doc: doc
 
