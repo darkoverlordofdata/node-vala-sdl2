@@ -2,16 +2,16 @@
   "compilerOptions": {
     "target": "es6",
     "module": "amd",
-    "rootDir": "src/js",
+    "rootDir": "example",
     "allowJs": true,
-    "outFile": "bin/game"
+    "sourceMap": true,
+    "outFile": "bin/game.js"
   },
   "files": [
-    "src/js/sdx.d.ts",
-    "src/js/gjs.d.ts",
-    "src/js/prolog.js",
-    "src/js/gnode.js",
-    "src/js/shmupwarz.d.ts",
-    "src/js/shmupwarz.ts"
+    "example/sdx.d.ts",
+    "example/prolog.js",
+    "example/gnode.js",
+    "example/shmupwarz.d.ts",
+    "example/shmupwarz.ts"
   ]
 }

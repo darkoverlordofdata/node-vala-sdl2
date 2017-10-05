@@ -49,7 +49,7 @@ VAudio = ref.types.void
 VAudioPtr = ref.refType(VAudio)
 
 
-sdx = ffi.Library 'sdx', 
+sdx = ffi.Library 'libsdx', 
     sdx_get_version:                        ['string', []]
     sdx_createJsGame:                       [VGamePtr, ['string', 'int', 'int', 'string']]
     sdx_createSprite:                       [VSpritePtr, ['string']]

@@ -7,16 +7,40 @@ sdx can be used from vala or javascript.
 runs on gnode (either gjs or node)
 
 
-## install
+## *nix build
 
 ```
 $ git clone git@github.com:darkoverlordofdata/node-vala-sdl2.git
 $ cd node-vala-sdl2
 $ npm install
-$ ./build
 $ tsc
-$ gjs bin/game
-$ node bin/game
+$ mkdir install
+$ cd install
+$ cmake ..
+$ make
+$ sudo make install
+$ cd ..
+$ cd bin
+$ node game.js
+```
+
+## windows build
+
+```
+$ git clone git@github.com:darkoverlordofdata/node-vala-sdl2.git
+$ cd node-vala-sdl2
+$ npm install
+$ tsc
+<msys2>
+$ sed -i -e "s/LIBRARY DESTINATION/RUNTIME DESTINATION/" src/CMakeLists.txt
+$ mkdir install
+$ cd install
+$ cmake -G "MSYS Makefiles" ..
+$ make
+$ cp -f src/libsdx.dll ../bin/libsdx.dll
+</msys2>
+$ cd bin
+$ node game.js
 ```
 
 ## performance

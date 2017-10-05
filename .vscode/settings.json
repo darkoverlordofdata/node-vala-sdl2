@@ -1,8 +1,8 @@
 {
     // MSys2
     // Build for windows using cmake
-    // "terminal.integrated.shell.windows": "C:\\msys64\\usr\\bin\\bash.exe",
-    // "terminal.integrated.shellArgs.windows": ["-lic", "cd $OLDPWD; exec bash"],
+    "terminal.integrated.shell.windows": "C:\\msys64\\usr\\bin\\bash.exe",
+    "terminal.integrated.shellArgs.windows": ["-lic", "cd $OLDPWD; exec bash"],
 
     // Bash on Ubuntu (on Windows)
     // Update the autovala

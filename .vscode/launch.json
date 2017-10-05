@@ -2,12 +2,18 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Debug",
-            "type": "lldb",
+            "type": "node",
             "request": "launch",
-            "cwd": "${workspaceRoot}",
-            "program": "/usr/bin/node",
-            "args": ["bin/game"]
+            "name": "Launch Program",
+            "program": "${workspaceRoot}\\bin\\game.js",
+            "cwd": "${workspaceRoot}/bin",
+            "outFiles": [ "${workspaceRoot}\\bin\\game.js" ]
+        },
+        {
+            "type": "node",
+            "request": "attach",
+            "name": "Attach to Process",
+            "port": 5858
         }
     ]
 }

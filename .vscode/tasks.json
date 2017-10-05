@@ -1,17 +1,15 @@
 {
-    "version": "0.1.0",
-    "command": "/bin/sh",
-    "cwd": "${workspaceRoot}",
-    "isShellCommand": true,
-    "args": ["-c"],
-    "showOutput": "always",
-    "echoCommand": true,
-    "suppressTaskName": true,
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
     "tasks": [
         {
-            "isBuildCommand": true,
-            "taskName": "build",
-            "args": ["/usr/bin/time tsc && cat src/js/prolog.js bin/game | sponge bin/game"]
+            "type": "typescript",
+            "tsconfig": "tsconfig.json",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
         }
     ]
 }
